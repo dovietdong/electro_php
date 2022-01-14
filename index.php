@@ -56,6 +56,16 @@
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
 
+    <script>
+	function addCart(id) {
+		$.post("addcart.php", { 'pro_id': id}, function(data, status) {
+			//alert("Data: " + data + "\nStatus: " + status);
+			//alert(data);
+			$("#amount").text(data);
+
+		});
+	}
+    </script>
     
 </body>
 

@@ -703,12 +703,3 @@
 </div>
 <!-- /NEWSLETTER -->
 
-<script>
-	function addCart(id) {
-		$.post("addcart.php", {
-			'pro_id': id
-		}, function(data, status) {
-			alert("Data: " + data + "\nStatus: " + status);
-		});
-	}
-</script>

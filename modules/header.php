@@ -63,10 +63,23 @@
 
                         <!-- Cart -->
                         <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
-                                <div class="qty">3</div>
+                                <?php                                                
+                                $total = 0;
+                                $item = 0;
+                                $quantily = 0;
+                                if (!empty($_SESSION["cart"])) {
+                                    foreach ($_SESSION["cart"] as $val) {
+                                        $quantily += $val["quanlity"];
+                                        $item++;
+                                        $total = $quantily * $val["price"];
+                                    }
+                                }
+                               
+                                ?>
+                                <div class="qty" id="amount"><?php echo $quantily ?></div>
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
@@ -93,8 +106,8 @@
                                     </div>
                                 </div>
                                 <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+                                    <small><?php echo $item ?> Item(s) selected;</small>
+                                    <h5>SUBTOTAL: $<?php echo $total; ?></h5>
                                 </div>
                                 <div class="cart-btns">
                                     <a href="#">View Cart</a>
@@ -124,26 +137,26 @@
 </header>
 <!-- /HEADER -->
 
-		<!-- NAVIGATION -->
-		<nav id="navigation">
-			<!-- container -->
-			<div class="container">
-				<!-- responsive-nav -->
-				<div id="responsive-nav">
-					<!-- NAV -->
-					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="index.php?page=home">Home</a></li>
-						<li><a href="index.php?page=store">Hot Deals</a></li>
-						<li><a href="index.php?page=category">Categories</a></li>
-						<li><a href="index.php?page=store">Laptops</a></li>
-						<li><a href="index.php?page=blank">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
-					</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-			</div>
-			<!-- /container -->
-		</nav>
-		<!-- /NAVIGATION -->
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li class="active"><a href="index.php?page=home">Home</a></li>
+                <li><a href="index.php?page=store">Hot Deals</a></li>
+                <li><a href="index.php?page=category">Categories</a></li>
+                <li><a href="index.php?page=store">Laptops</a></li>
+                <li><a href="index.php?page=blank">Smartphones</a></li>
+                <li><a href="#">Cameras</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->

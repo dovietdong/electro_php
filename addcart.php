@@ -37,9 +37,23 @@
             }
         }
 
+    $quantily =0;
+
+    if(!empty($_SESSION["cart"])){
+        foreach($_SESSION["cart"] as $val){
+            $quantily += $val["quanlity"];
+        }
+    }
+    echo $quantily;
+
+    
+    
+
+
+
         
-        echo "<pre>";
-        print_r($_SESSION["cart"]);
-        die;
+        // echo "<pre>";
+        // print_r($_SESSION["cart"]);
+        // die;
     }
 ?>
